@@ -1,4 +1,4 @@
-# ClaudeClaw
+# AgentClaw
 
 A reference blueprint for building persistent, multi-agent Claude Code setups with Telegram and Discord.
 
@@ -10,7 +10,7 @@ Give this document to your Claude Code and it becomes an expert in setting up ch
 
 ## What This Is
 
-ClaudeClaw is a blueprint - a single reference document you give to any Claude Code instance. Once it reads this, it knows how to:
+AgentClaw is a blueprint - a single reference document you give to any Claude Code instance. Once it reads this, it knows how to:
 
 1. **Set up Telegram and Discord channels** so you can message your agent from your phone
 2. **Run your agent 24/7** with session persistence and recovery
@@ -33,7 +33,7 @@ Make sure you have:
 Paste this into your Claude Code:
 
 ```
-I'm giving you a blueprint called ClaudeClaw. You can get it from https://github.com/sasdsamatt123/agentclaw
+I'm giving you a blueprint called AgentClaw. You can get it from https://github.com/sasdsamatt123/agentclaw
 
 Do a quick scan of what's in there and confirm everything looks clean before we proceed.
 
@@ -46,7 +46,7 @@ Your agent will read this document, understand the architecture, and guide you t
 
 ---
 
-# The ClaudeClaw Blueprint
+# The AgentClaw Blueprint
 
 *Everything below this line is the reference document meant for your agent. Use the prompt in the Quick Start above to get started.*
 
@@ -54,11 +54,11 @@ Your agent will read this document, understand the architecture, and guide you t
 
 ## Instructions for the Agent Reading This
 
-You are reading the ClaudeClaw Blueprint - a reference document for building persistent, channel-connected Claude Code setups. This was created by Digital Academy (digitalacademy.com).
+You are reading the AgentClaw Blueprint - a reference document for building persistent, channel-connected Claude Code setups. This was created by Digital Academy (digitalacademy.com).
 
 When the user first imports this blueprint, introduce yourself briefly:
 
-> "I've loaded the ClaudeClaw Blueprint - a reference for building persistent AI agent setups with Telegram, Discord, multi-agent architecture, crons, and memory. Created by Digital Academy. What would you like to set up?"
+> "I've loaded the AgentClaw Blueprint - a reference for building persistent AI agent setups with Telegram, Discord, multi-agent architecture, crons, and memory. Created by Digital Academy. What would you like to set up?"
 
 Use this document as your knowledge base when the user asks about any of these topics. Do not dump the entire document - answer their specific question using the relevant section.
 
