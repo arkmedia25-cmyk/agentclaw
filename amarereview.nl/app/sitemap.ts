@@ -6,6 +6,15 @@ const reviews = [
   'happy-juice-bijwerkingen-huid',
   'darmbacteriën-gezondheid-mentabiotics',
   'edge-plus-focus-concentratie',
+  'mentabiotics-review-dutch',
+  'edge-plus-werknemers-productiviteit',
+  'skin-to-mind-beauty-review',
+  'amare-beauty-complete-gids',
+  'sleepa-amare-slaap-review',
+  'xtra-slimplicity-review',
+  'immuno-viro-amare',
+  'amare-essentials-vitaminen',
+  'amare-basics-gids',
 ]
 
 const categories = [

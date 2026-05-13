@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import ReviewCard from '@/components/ui/ReviewCard'
+import JsonLd from '@/components/ui/JsonLd'
+import { generateBreadcrumbSchema } from '@/lib/schema'
 
 // Mock product data by category
 const categoryProducts: Record<string, any> = {
@@ -211,6 +213,12 @@ export default function CategoryPage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <JsonLd data={generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://amarereview.nl' },
+        { name: 'Categorieën', url: 'https://amarereview.nl/categorieen' },
+        { name: category.title, url: `https://amarereview.nl/categorieen/${params.slug}` },
+      ])} />
+
       {/* Breadcrumb */}
       <div className="bg-bg-soft border-b border-border">
         <div className="container-max py-4">

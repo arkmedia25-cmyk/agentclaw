@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { Check, X } from 'lucide-react'
+import JsonLd from '@/components/ui/JsonLd'
+import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata = {
   title: 'Amare vs Alternatieven | Vergelijking | AmareReview.nl',
@@ -48,6 +50,11 @@ export default function ComparisonPage() {
 
   return (
     <>
+      <JsonLd data={generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://amarereview.nl' },
+        { name: 'Vergelijking', url: 'https://amarereview.nl/vergelijking' },
+      ])} />
+
       {/* Header */}
       <div className="bg-gradient-to-r from-primary to-primary-light">
         <div className="container-max section-padding text-white">

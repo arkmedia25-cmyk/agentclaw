@@ -1,8 +1,24 @@
 import Link from 'next/link'
+import type { Metadata } from 'next'
 import ReviewCard from '@/components/ui/ReviewCard'
 import AffiliateCTA from '@/components/ui/AffiliateCTA'
 import HomepageGuarantee from '@/components/ui/HomepageGuarantee'
+import JsonLd from '@/components/ui/JsonLd'
+import { generateBreadcrumbSchema } from '@/lib/schema'
 import { ArrowRight, Shield, Gift, Truck, Leaf, Users } from 'lucide-react'
+
+export const metadata: Metadata = {
+  title: 'AmareReview.nl | Onafhankelijke Amare Product Reviews',
+  description: 'Eerlijke, onafhankelijke reviews van Amare producten. Lees betrouwbare beoordelingen van echte gebruikers in Nederland.',
+  alternates: { canonical: 'https://amarereview.nl' },
+  openGraph: {
+    title: 'AmareReview.nl | Onafhankelijke Amare Product Reviews',
+    description: 'Eerlijke, onafhankelijke reviews van Amare producten.',
+    url: 'https://amarereview.nl',
+    siteName: 'AmareReview.nl',
+    locale: 'nl_NL',
+  },
+}
 
 export default function Home() {
   const featuredReviews = [
@@ -48,6 +64,9 @@ export default function Home() {
 
   return (
     <>
+      <JsonLd data={generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://amarereview.nl' },
+      ])} />
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary via-primary-light to-primary-light">
         <div className="container-max section-padding">

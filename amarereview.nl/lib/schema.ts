@@ -9,6 +9,44 @@ interface ReviewSchema {
   slug: string
 }
 
+interface ArticleSchema {
+  headline: string
+  description: string
+  datePublished: string
+  dateModified?: string
+  authorName: string
+  authorUrl?: string
+  slug: string
+  imageUrl?: string
+  wordCount?: number
+}
+
+export function generatePersonSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Mark',
+    jobTitle: 'Lead Reviewer & Oprichter',
+    url: 'https://amarereview.nl/over-ons',
+    email: 'contact@amarereview.nl',
+    affiliation: {
+      '@type': 'Organization',
+      name: 'AmareReview.nl',
+      url: 'https://amarereview.nl',
+    },
+    knowsAbout: [
+      'Amare producten',
+      'Supplement reviews',
+      'Darmgezondheid',
+      'Gut-brain axis',
+      'Natuurlijke supplementen',
+      'Happy Juice',
+      'MentaBiotics',
+      'Edge Plus',
+    ],
+  }
+}
+
 export function generateReviewSchema(review: ReviewSchema) {
   return {
     '@context': 'https://schema.org',
@@ -23,6 +61,7 @@ export function generateReviewSchema(review: ReviewSchema) {
     author: {
       '@type': 'Person',
       name: review.authorName,
+      url: 'https://amarereview.nl/over-ons',
     },
     reviewRating: {
       '@type': 'Rating',
@@ -38,6 +77,39 @@ export function generateReviewSchema(review: ReviewSchema) {
     },
     url: `https://amarereview.nl/reviews/${review.slug}`,
     inLanguage: 'nl-NL',
+  }
+}
+
+export function generateArticleSchema(article: ArticleSchema) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.headline,
+    description: article.description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified || article.datePublished,
+    author: {
+      '@type': 'Person',
+      name: article.authorName,
+      url: article.authorUrl || 'https://amarereview.nl/over-ons',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'AmareReview.nl',
+      url: 'https://amarereview.nl',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://amarereview.nl/images/logo.svg',
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://amarereview.nl/reviews/${article.slug}`,
+    },
+    image: article.imageUrl || 'https://amarereview.nl/images/reviews/placeholder-1.svg',
+    wordCount: article.wordCount,
+    inLanguage: 'nl-NL',
+    isAccessibleForFree: true,
   }
 }
 
@@ -59,6 +131,14 @@ export function generateOrganizationSchema() {
     sameAs: [
       'https://amarereview.nl',
     ],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: 'https://amarereview.nl/reviews?zoek={search_term_string}',
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 }
 
@@ -87,5 +167,20 @@ export function generateFAQSchema(faqs: { question: string; answer: string }[]) 
         text: faq.answer,
       },
     })),
+  }
+}
+
+export function generateSpeakableSchema(headline: string, summary: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SpeakableSpecification',
+    headline: {
+      '@type': 'SpeakableSpecification',
+      xpath: ['/html/head/title'],
+    },
+    summary: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['h1', '.speakable-summary'],
+    },
   }
 }

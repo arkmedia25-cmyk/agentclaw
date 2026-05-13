@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import JsonLd from '@/components/ui/JsonLd'
+import { generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata = {
   title: 'Amare Product Categorieën | AmareReview.nl',
@@ -61,6 +63,11 @@ const categories = [
 export default function CategoriesPage() {
   return (
     <>
+      <JsonLd data={generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://amarereview.nl' },
+        { name: 'Categorieën', url: 'https://amarereview.nl/categorieen' },
+      ])} />
+
       {/* Header */}
       <div className="bg-gradient-to-r from-primary to-primary-light">
         <div className="container-max section-padding text-white">

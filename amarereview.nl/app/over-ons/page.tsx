@@ -1,5 +1,7 @@
 import Link from 'next/link'
 import { Heart, Lightbulb, Shield, Users } from 'lucide-react'
+import JsonLd from '@/components/ui/JsonLd'
+import { generatePersonSchema, generateBreadcrumbSchema } from '@/lib/schema'
 
 export const metadata = {
   title: 'Over AmareReview.nl | Onafhankelijke Reviews',
@@ -32,6 +34,12 @@ export default function AboutPage() {
 
   return (
     <>
+      <JsonLd data={generatePersonSchema()} />
+      <JsonLd data={generateBreadcrumbSchema([
+        { name: 'Home', url: 'https://amarereview.nl' },
+        { name: 'Over Ons', url: 'https://amarereview.nl/over-ons' },
+      ])} />
+
       {/* Header */}
       <div className="bg-gradient-to-r from-primary to-primary-light">
         <div className="container-max section-padding text-white">

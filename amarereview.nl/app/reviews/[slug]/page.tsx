@@ -3,7 +3,12 @@ import { ArrowLeft, CheckCircle, XCircle, AlertCircle } from 'lucide-react'
 import LeadMagnetModal from '@/components/ui/LeadMagnetModal'
 import JsonLd from '@/components/ui/JsonLd'
 import { getLeadMagnet, getAmareNLUrl } from '@/lib/leadMagnets'
-import { generateReviewSchema, generateBreadcrumbSchema } from '@/lib/schema'
+import {
+  generateReviewSchema,
+  generateBreadcrumbSchema,
+  generateFAQSchema,
+  generateArticleSchema,
+} from '@/lib/schema'
 
 const reviews: Record<string, any> = {
   'happy-juice-bijwerkingen-huid': {
@@ -60,6 +65,24 @@ Voor deze review hebben we onderzoek gedaan naar:
       'Retourkostenen niet altijd gratis',
     ],
     rating_detail: 'Happy Juice scoort 4.3 uit 5 op basis van ingrediëntenkwaliteit (4.5), gerapporteerde effectiviteit (4.2), waardefor geld (4.0) en veiligheid (4.3).',
+    faqs: [
+      {
+        question: 'Wat is Happy Juice en wat doet het?',
+        answer: 'Happy Juice is een poedervormig supplement van Amare dat de darm-hersenen-verbinding (gut-brain axis) ondersteunt. Het combineert probiotica, aminozuren en vitaminen om stemming, energie en darmgezondheid te bevorderen.',
+      },
+      {
+        question: 'Heeft Happy Juice bijwerkingen op de huid?',
+        answer: 'Er zijn geen ernstige huidbijwerkingen gerapporteerd bij Happy Juice. De natuurlijke ingrediënten worden over het algemeen goed verdragen. Raadpleeg bij huidgevoeligheid altijd eerst een arts voordat je begint.',
+      },
+      {
+        question: 'Hoe lang duurt het voordat Happy Juice werkt?',
+        answer: 'De meeste gebruikers rapporteren eerste effecten na 3-4 weken consistent gebruik. Voor optimale resultaten wordt 8-12 weken aanbevolen, omdat de darmflora tijd nodig heeft om zich aan te passen.',
+      },
+      {
+        question: 'Is Happy Juice veilig voor dagelijks gebruik?',
+        answer: 'Ja, Happy Juice is ontworpen voor dagelijks gebruik. De natuurlijke ingrediënten zijn veilig bij de aanbevolen dosering. Stop gebruik en raadpleeg een arts bij onverwachte reacties.',
+      },
+    ],
   },
   'darmbacteriën-gezondheid-mentabiotics': {
     title: 'MentaBiotics: Darmbacteriën Review',
@@ -115,6 +138,24 @@ Voor deze review hebben we onderzoek gedaan naar:
       'Vereist koeling en juiste opslag',
     ],
     rating_detail: 'MentaBiotics scoort 4.6 uit 5 op basis van probiotische stammen (4.7), wetenschappelijk bewijs (4.6), werkingsduur (4.5) en waardefor geld (4.5).',
+    faqs: [
+      {
+        question: 'Wat is MentaBiotics en hoe werkt het?',
+        answer: 'MentaBiotics is een probiotisch supplement van Amare met meerdere bacteriestammen die de darmgezondheid ondersteunen. Het richt zich op de gut-brain axis — de communicatie tussen darmen en hersenen.',
+      },
+      {
+        question: 'Welke probiotische stammen bevat MentaBiotics?',
+        answer: 'MentaBiotics bevat wetenschappelijk ondersteunde stammen zoals Lactobacillus en Bifidobacterium soorten. Elke stam is geselecteerd op overlevingskans in het maagzuur en bewezen effect op darmgezondheid.',
+      },
+      {
+        question: 'Hoe snel verbetert MentaBiotics de darmgezondheid?',
+        answer: 'Eerste verbeteringen in spijsvertering worden vaak binnen 2-3 weken gemeld. Voor significante veranderingen in darmflora is 8-12 weken consistent gebruik aanbevolen.',
+      },
+      {
+        question: 'Kan ik MentaBiotics combineren met andere supplementen?',
+        answer: 'MentaBiotics kan over het algemeen veilig gecombineerd worden met andere supplementen. Overleg met een arts bij medicijngebruik of specifieke gezondheidsaandoeningen.',
+      },
+    ],
   },
   'edge-plus-focus-concentratie': {
     title: 'Edge Plus: Focus en Concentratie Review',
@@ -170,6 +211,24 @@ Voor deze review hebben we onderzoek gedaan naar:
       'Niet aangeraden later op de dag',
     ],
     rating_detail: 'Edge Plus scoort 4.2 uit 5 op basis van concentratie (4.3), energie (4.1), werkingsduur (4.2) en waardefor geld (4.0).',
+    faqs: [
+      {
+        question: 'Wat is Edge Plus en voor wie is het geschikt?',
+        answer: 'Edge Plus is een energiesupplement van Amare ontworpen voor focus en concentratie. Het is geschikt voor professionals, studenten en iedereen die mentale helderheid wil ondersteunen zonder cafeïne-achtige bijwerkingen.',
+      },
+      {
+        question: 'Hoe snel werkt Edge Plus na inname?',
+        answer: 'Edge Plus werkt doorgaans binnen 15-30 minuten na inname. Het effect houdt 4-6 uur aan. Voor optimale focus wordt aanbevolen het op een lege maag in te nemen.',
+      },
+      {
+        question: 'Heeft Edge Plus bijwerkingen zoals cafeïne?',
+        answer: 'Edge Plus bevat natuurlijke ingrediënten en geeft geen jitterig cafeïne-gevoel. Gebruikers met cafeïnegevoeligheid kunnen alsnog reageren — controleer het ingrediëntenlabel en raadpleeg bij twijfel een arts.',
+      },
+      {
+        question: 'Kan ik Edge Plus dagelijks gebruiken?',
+        answer: 'Edge Plus is geschikt voor dagelijks gebruik op werkdagen. Veel gebruikers nemen het op doordeweekse dagen en pauzeren in het weekend. Consistent gebruik geeft de meest voorspelbare resultaten.',
+      },
+    ],
   },
 }
 
@@ -220,16 +279,29 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
     slug: params.slug,
   })
 
+  const articleSchema = generateArticleSchema({
+    headline: review.title,
+    description: review.excerpt,
+    datePublished: review.date,
+    authorName: review.author,
+    slug: params.slug,
+    wordCount: review.content.split(' ').length + (review.methodology?.split(' ').length || 0),
+  })
+
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://amarereview.nl' },
     { name: 'Reviews', url: 'https://amarereview.nl/reviews' },
     { name: review.title, url: `https://amarereview.nl/reviews/${params.slug}` },
   ])
 
+  const faqSchema = review.faqs ? generateFAQSchema(review.faqs) : null
+
   return (
     <>
       <JsonLd data={reviewSchema} />
+      <JsonLd data={articleSchema} />
       <JsonLd data={breadcrumbSchema} />
+      {faqSchema && <JsonLd data={faqSchema} />}
 
       {/* Breadcrumb */}
       <div className="bg-bg-soft border-b border-border">
