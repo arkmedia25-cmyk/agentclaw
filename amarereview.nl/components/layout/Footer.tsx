@@ -53,14 +53,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#" className="opacity-85 hover:opacity-100 transition">
+                <Link href="/privacybeleid" className="opacity-85 hover:opacity-100 transition">
                   Privacybeleid
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="opacity-85 hover:opacity-100 transition">
+                <Link href="/disclaimer" className="opacity-85 hover:opacity-100 transition">
                   Disclaimer
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="https://amarenl.com" className="opacity-85 hover:opacity-100 transition">
