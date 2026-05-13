@@ -1,34 +1,40 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* ============================================================================
-   DESIGN PHILOSOPHY: Consumer Reports - Independent, Trustworthy, Professional
-   Colors: Navy (authority) + Red (important) + Gray (neutral)
-   Typography: Georgia (headlines - journalistic) + Inter (body - clean, readable)
+   DESIGN PHILOSOPHY: Consumer Reports × Pentagram × Information Architects
+   "Trust through typography. Authority through restraint."
+   Colors: Refined Navy (authority) + Burnt Orange (warmth) + Stone Gray (neutral)
+   Typography: Georgia (editorial) + Inter (precision)
+   Anti-AI-Slop: No purple gradients, no emoji icons, no rounded+left-border accent
    ============================================================================ */
 
 :root {
-  --color-primary: #1a3564;
-  --color-primary-light: #2a5298;
-  --color-accent: #d86018;
-  --color-accent-light: #fef3e8;
+  --color-primary: #0f2b4c;
+  --color-primary-light: #1d4a7a;
+  --color-accent: #c24a1a;
+  --color-accent-light: #fdf4ed;
 
   --color-bg: #ffffff;
-  --color-bg-soft: #f8f9fb;
-  --color-text: #1c2533;
-  --color-text-muted: #6b7280;
-  --color-border: #e2e6ec;
+  --color-bg-soft: #f6f8fa;
+  --color-text: #111827;
+  --color-text-muted: #5a6470;
+  --color-border: #e2e6eb;
   --color-divider: #d1d5db;
 
-  --color-success: #1a7a46;
-  --color-error: #c0392b;
-  --color-warning: #d86018;
+  --color-success: #1a6840;
+  --color-error: #b83230;
+  --color-warning: #c24a1a;
 
-  --font-serif: 'Georgia', serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Georgia', 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-card-hover: 0 4px 16px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+  --shadow-elevated: 0 8px 30px rgba(0,0,0,0.1);
 }
 
 * {
@@ -41,150 +47,178 @@ html {
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
   font-family: var(--font-sans);
+  font-size: 16px;
   color: var(--color-text);
   background-color: var(--color-bg);
-  line-height: 1.6;
-  letter-spacing: 0.3px;
+  line-height: 1.65;
+  letter-spacing: -0.01em;
 }
 
 /* ============================================================================
-   TYPOGRAPHY: Professional, Journalistic
+   TYPOGRAPHY — Pentagram-inspired type scale (1.25 ratio)
    ============================================================================ */
 
 h1 {
   font-family: var(--font-serif);
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.25rem;
   color: var(--color-primary);
 }
 
 h2 {
   font-family: var(--font-serif);
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
-  line-height: 1.3;
-  margin-bottom: 1.25rem;
-  margin-top: 2rem;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
   color: var(--color-primary);
 }
 
 h3 {
   font-family: var(--font-serif);
-  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: 700;
-  line-height: 1.4;
-  margin-bottom: 1rem;
-  margin-top: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.75rem;
+  margin-top: 1.75rem;
   color: var(--color-primary);
 }
 
 h4, h5, h6 {
   font-family: var(--font-sans);
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
   color: var(--color-primary);
 }
 
-/* On dark backgrounds, headings and paragraphs inherit white */
+h4 { font-size: 1.1rem; }
+h5 { font-size: 1rem; }
+h6 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.04em; }
+
 .bg-primary h1, .bg-primary h2, .bg-primary h3,
 .bg-primary h4, .bg-primary h5, .bg-primary h6,
 .bg-gradient-to-r h1, .bg-gradient-to-r h2, .bg-gradient-to-r h3 {
-  color: inherit;
+  color: #ffffff;
 }
 
 p {
-  margin-bottom: 1.25rem;
-  line-height: 1.75;
-  letter-spacing: 0.3px;
-  max-width: 65ch;
+  margin-bottom: 1rem;
+  line-height: 1.7;
+  max-width: 68ch;
   color: var(--color-text);
+  font-size: 1rem;
 }
 
 p.text-muted, .text-text-muted {
   color: var(--color-text-muted);
 }
 
-/* Dark section overrides: make text white and readable */
 .bg-primary p,
 .bg-gradient-to-r p {
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 footer p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.text-balance {
+  text-wrap: balance;
 }
 
 /* ============================================================================
-   LINKS & INTERACTIONS
+   LINKS — Understated, professional
    ============================================================================ */
 
 a {
   color: var(--color-primary);
   text-decoration: none;
-  transition: color 0.2s ease, border-bottom-color 0.2s ease;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 1px;
+  transition: color 0.2s ease;
 }
 
 a:hover {
   color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+}
+
+/* Inline text links get an underline */
+.prose a:not(.btn-primary):not(.btn-secondary) {
+  text-decoration: underline;
+  text-decoration-color: var(--color-border);
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+}
+
+.prose a:not(.btn-primary):not(.btn-secondary):hover {
+  text-decoration-color: var(--color-accent);
 }
 
 /* ============================================================================
-   BUTTONS: Clear, Professional
+   BUTTONS — Clear, confident, no rounded clichés
    ============================================================================ */
 
 .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-primary);
   color: #ffffff;
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 11px 24px;
+  font-size: 0.925rem;
+  padding: 11px 26px;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
   background-color: var(--color-accent);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-elevated);
+  color: #ffffff;
 }
 
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
   color: var(--color-primary);
   font-weight: 600;
-  font-size: 0.95rem;
-  padding: 11px 24px;
-  border: 1px solid var(--color-primary);
-  border-radius: 3px;
+  font-size: 0.925rem;
+  padding: 10px 24px;
+  border: 1.5px solid var(--color-primary);
+  border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
 }
 
 .btn-secondary:hover {
   background-color: var(--color-primary);
   color: #ffffff;
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* Secondary button on dark navy backgrounds */
 .bg-primary .btn-secondary,
 section.bg-primary .btn-secondary {
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.7);
+  border-color: rgba(255, 255, 255, 0.55);
 }
 
 .bg-primary .btn-secondary:hover,
@@ -200,20 +234,100 @@ button {
 }
 
 /* ============================================================================
-   CARDS: Clean, Minimal
+   CARDS — Refined, subtle shadow system
    ============================================================================ */
 
 .card {
   background-color: #ffffff;
   border: 1px solid var(--color-border);
-  border-radius: 3px;
-  padding: 1.5rem;
-  transition: all 0.2s ease;
+  border-radius: 6px;
+  padding: 1.75rem;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-card);
 }
 
 .card:hover {
+  border-color: #c8cdd4;
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.card--featured {
   border-color: var(--color-primary);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  border-width: 2px;
+}
+
+.card--trust {
+  border-left: 3px solid var(--color-success);
+}
+
+/* ============================================================================
+   TRUST ELEMENTS — Badges, seals, disclosure boxes
+   ============================================================================ */
+
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 6px 14px;
+  background-color: var(--color-bg-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  letter-spacing: 0.01em;
+}
+
+.trust-badge--verified {
+  background-color: #eef7f2;
+  border-color: #b8d8c4;
+  color: var(--color-success);
+}
+
+.disclosure-box {
+  background-color: var(--color-accent-light);
+  border: 1px solid rgba(194, 74, 26, 0.15);
+  border-left: 3px solid var(--color-accent);
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  font-size: 0.825rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.disclosure-box strong {
+  color: var(--color-primary);
+}
+
+/* ============================================================================
+   RATING STARS
+   ============================================================================ */
+
+.rating-stars {
+  display: inline-flex;
+  gap: 2px;
+  color: var(--color-accent);
+  font-size: 1.05rem;
+  letter-spacing: 1px;
+}
+
+.rating-stars--large {
+  font-size: 1.35rem;
+  gap: 3px;
+}
+
+.rating-number {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.rating-number--large {
+  font-size: 3.5rem;
 }
 
 /* ============================================================================
@@ -223,14 +337,14 @@ button {
 .container-max {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.75rem;
 }
 
 .section-padding {
-  padding: 4rem 0;
+  padding: 3.5rem 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .section-padding {
     padding: 5rem 0;
   }
@@ -239,15 +353,15 @@ button {
 .grid-auto {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2.5rem;
+  gap: 2rem;
 }
 
 /* ============================================================================
-   HERO SECTIONS
+   HERO / BANNER SECTIONS
    ============================================================================ */
 
 .bg-gradient-to-r {
-  background: linear-gradient(to right, var(--color-primary), var(--color-primary-light));
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   color: #ffffff;
 }
 
@@ -256,25 +370,12 @@ button {
   color: #ffffff;
 }
 
-.text-white {
-  color: #ffffff;
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.bg-bg-soft {
-  background-color: var(--color-bg-soft);
-}
-
-.bg-white {
-  background-color: #ffffff;
-}
-
-.border-border {
-  border-color: var(--color-border);
-}
+.text-white { color: #ffffff; }
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+.bg-bg-soft { background-color: var(--color-bg-soft); }
+.bg-white { background-color: #ffffff; }
+.border-border { border-color: var(--color-border); }
 
 /* ============================================================================
    FORM ELEMENTS
@@ -283,9 +384,9 @@ button {
 input, textarea, select {
   font-family: var(--font-sans);
   padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 3px;
-  font-size: 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 5px;
+  font-size: 0.95rem;
   transition: all 0.2s ease;
   color: var(--color-text);
   background-color: #ffffff;
@@ -294,7 +395,7 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(30, 58, 138, 0.1);
+  box-shadow: 0 0 0 3px rgba(15, 43, 76, 0.08);
 }
 
 input::placeholder {
@@ -302,83 +403,248 @@ input::placeholder {
 }
 
 /* ============================================================================
-   HEADER
+   HEADER — Refined, professional
    ============================================================================ */
 
 header {
   border-bottom: 1px solid var(--color-border);
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
-  z-index: 40;
+  z-index: 50;
 }
 
 /* ============================================================================
-   FOOTER
+   FOOTER — Authority dark
    ============================================================================ */
 
 footer {
-  background-color: var(--color-primary);
+  background-color: #0b2238;
   color: #ffffff;
   margin-top: 5rem;
   padding: 4rem 0 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 footer a {
-  color: #ffffff;
-  border-bottom-color: #ffffff;
+  color: rgba(255, 255, 255, 0.78);
 }
 
 footer a:hover {
-  color: var(--color-accent);
-  border-bottom-color: var(--color-accent);
+  color: #ffffff;
 }
 
 /* ============================================================================
-   UTILITY CLASSES
+   COMPARISON TABLE
    ============================================================================ */
 
-.flex {
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.925rem;
+}
+
+.compare-table th {
+  text-align: left;
+  padding: 12px 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.compare-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.compare-table tr:hover td {
+  background-color: var(--color-bg-soft);
+}
+
+.compare-table .winner {
+  background-color: #eef7f2;
+}
+
+.compare-table .winner td:first-child::before {
+  content: "★ ";
+  color: var(--color-accent);
+}
+
+/* ============================================================================
+   FAQ BLOCKS — Semantic markup styling
+   ============================================================================ */
+
+.faq-section dl {
   display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
-.inline-flex {
-  display: inline-flex;
-  align-items: center;
+.faq-section dt {
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  cursor: pointer;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: color 0.2s ease;
 }
 
-.items-center {
-  align-items: center;
+.faq-section dt:hover {
+  color: var(--color-accent);
 }
 
-.justify-between {
-  justify-content: space-between;
+.faq-section dd {
+  padding: 0.5rem 0 1rem 0;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
-.justify-center {
-  justify-content: center;
+/* ============================================================================
+   ANIMATION UTILITIES
+   ============================================================================ */
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
 }
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Stagger children */
+.stagger-children > * {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.stagger-children > *:nth-child(1) { animation-delay: 0.05s; }
+.stagger-children > *:nth-child(2) { animation-delay: 0.1s; }
+.stagger-children > *:nth-child(3) { animation-delay: 0.15s; }
+.stagger-children > *:nth-child(4) { animation-delay: 0.2s; }
+.stagger-children > *:nth-child(5) { animation-delay: 0.25s; }
+.stagger-children > *:nth-child(6) { animation-delay: 0.3s; }
+.stagger-children > *:nth-child(7) { animation-delay: 0.35s; }
+.stagger-children > *:nth-child(8) { animation-delay: 0.4s; }
+
+/* ============================================================================
+   UTILITY CLASSES (minimal — most through Tailwind)
+   ============================================================================ */
+
+.flex { display: flex; }
+.inline-flex { display: inline-flex; align-items: center; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
 
 .gap-2 { gap: 0.5rem; }
 .gap-3 { gap: 0.75rem; }
 .gap-4 { gap: 1rem; }
 .gap-6 { gap: 1.5rem; }
 .gap-8 { gap: 2rem; }
+.gap-10 { gap: 2.5rem; }
 
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
 .mb-4 { margin-bottom: 1rem; }
 .mb-6 { margin-bottom: 1.5rem; }
 .mb-8 { margin-bottom: 2rem; }
+.mb-10 { margin-bottom: 2.5rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
 .mt-4 { margin-top: 1rem; }
 .mt-6 { margin-top: 1.5rem; }
 .mt-8 { margin-top: 2rem; }
+.mt-10 { margin-top: 2.5rem; }
+.mt-16 { margin-top: 4rem; }
+
+.p-4 { padding: 1rem; }
+.p-5 { padding: 1.25rem; }
+.p-6 { padding: 1.5rem; }
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.py-10 { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 
 .opacity-75 { opacity: 0.75; }
+.opacity-85 { opacity: 0.85; }
 .opacity-90 { opacity: 0.9; }
+.opacity-95 { opacity: 0.95; }
 
-.transition {
-  transition: all 0.2s ease;
-}
+.transition { transition: all 0.2s ease; }
+
+.rounded { border-radius: 6px; }
+.rounded-lg { border-radius: 8px; }
+.rounded-full { border-radius: 9999px; }
+
+.font-bold { font-weight: 700; }
+.font-medium { font-weight: 500; }
+.font-serif { font-family: var(--font-serif); }
+.font-sans { font-family: var(--font-sans); }
+
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-4xl { font-size: 2.25rem; }
+.text-8xl { font-size: 6rem; }
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+
+.max-w-lg { max-width: 32rem; }
+.max-w-3xl { max-width: 48rem; }
+.max-w-4xl { max-width: 56rem; }
+
+.w-full { width: 100%; }
+.h-2 { height: 0.5rem; }
+.h-5 { height: 1.25rem; }
+
+.space-y-2 > * + * { margin-top: 0.5rem; }
+.space-y-3 > * + * { margin-top: 0.75rem; }
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+
+.leading-relaxed { line-height: 1.7; }
+
+.whitespace-pre-wrap { white-space: pre-wrap; }
+
+.flex-shrink-0 { flex-shrink: 0; }
+.flex-col { flex-direction: column; }
+.flex-1 { flex: 1 1 0%; }
+
+.relative { position: relative; }
+.sticky { position: sticky; }
+.top-0 { top: 0; }
+.z-50 { z-index: 50; }
+
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-10 { margin-top: 2.5rem; margin-bottom: 2.5rem; }
+.mr-2 { margin-right: 0.5rem; }
+.mr-3 { margin-right: 0.75rem; }
 
 /* ============================================================================
    RESPONSIVE
@@ -391,12 +657,15 @@ footer a:hover {
 
   .grid-auto {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
   .container-max {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
+
+  h1 { font-size: clamp(1.75rem, 7vw, 2.5rem); }
+  h2 { font-size: clamp(1.35rem, 5vw, 1.75rem); }
 }
 
 /* ============================================================================
@@ -404,30 +673,42 @@ footer a:hover {
    ============================================================================ */
 
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
 /* ============================================================================
-   PROSE / ARTICLE
+   PROSE / ARTICLE — Editorial quality
    ============================================================================ */
 
 .prose {
-  font-size: 1rem;
+  font-size: 1.025rem;
   line-height: 1.75;
 }
 
 .prose h2 {
-  margin-top: 2.5rem;
+  margin-top: 3rem;
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .prose h3 {
-  margin-top: 1.75rem;
+  margin-top: 2rem;
   margin-bottom: 0.75rem;
+}
+
+.prose h2 + h3 {
+  margin-top: 0.5rem;
 }
 
 .prose strong {
@@ -436,32 +717,54 @@ footer a:hover {
 }
 
 .prose ul, .prose ol {
-  margin-left: 1.5rem;
+  margin-left: 1.25rem;
   margin-bottom: 1.25rem;
 }
 
 .prose li {
   margin-bottom: 0.5rem;
+  padding-left: 0.25rem;
+}
+
+.prose li::marker {
+  color: var(--color-primary);
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--color-primary);
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.25rem;
+  color: var(--color-text-muted);
+  font-style: italic;
 }
 
 /* ============================================================================
-   SCROLLBAR
+   SCROLLBAR — Refined
    ============================================================================ */
 
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bg-soft);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
-  border-radius: 4px;
+  background: #c8cdd4;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-text-muted);
+  background: #a0a7b0;
+}
+
+/* ============================================================================
+   SELECTION
+   ============================================================================ */
+
+::selection {
+  background-color: rgba(194, 74, 26, 0.15);
+  color: var(--color-text);
 }

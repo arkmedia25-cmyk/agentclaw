@@ -203,7 +203,7 @@
 - [x] DNS yayılması → `amarereview.nl` aktif ✅
 - [x] Google Search Console doğrulama ✅
 - [x] Google Analytics 4 ID ekleme ✅
-- [ ] MentaBiotics slug title bug fix (`ë` karakteri)
+- [x] MentaBiotics slug title bug fix (`ë` karakteri) ✅ — `decodeURIComponent` çözümü
 
 ### Orta Öncelik
 - [ ] Zeta: AmareReview.nl tasarım eleştirisi
