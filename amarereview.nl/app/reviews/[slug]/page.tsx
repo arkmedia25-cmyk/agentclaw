@@ -240,9 +240,17 @@ export async function generateStaticParams() {
   ]
 }
 
+function getReview(slug: string) {
+  const normalized = slug.normalize('NFC')
+  for (const [key, value] of Object.entries(reviews)) {
+    if (key.normalize('NFC') === normalized) return value
+  }
+  return reviews['happy-juice-bijwerkingen-huid']!
+}
+
 export function generateMetadata({ params }: { params: { slug: string } }) {
-  const slug = params.slug.normalize('NFC')
-  const review = reviews[slug] || reviews['happy-juice-bijwerkingen-huid']
+  const slug = params.slug
+  const review = getReview(slug)
   return {
     title: `${review.title} | AmareReview.nl`,
     description: review.excerpt,
@@ -262,8 +270,8 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
 }
 
 export default function ReviewPage({ params }: { params: { slug: string } }) {
-  const slug = params.slug.normalize('NFC')
-  const review = reviews[slug] || reviews['happy-juice-bijwerkingen-huid']
+  const slug = params.slug
+  const review = getReview(slug)
   const magnet = getLeadMagnet(slug)
   const amareNLUrl = getAmareNLUrl(slug)
 
