@@ -1,274 +1,236 @@
-# AmareReview.nl - Project Status
+# AmareReview.nl — Project Status & Site Croquis
 
-**Status**: ✅ Phase 1 Complete - Frontend & Infrastructure Ready | 🔄 Phase 2 - Lead Generation Implementation
-
+**Status**: ✅ Production Live | 🟢 All Systems Active | 🌐 Custom Domain Active
 **Last Updated**: 2026-05-13
+**Live URL**: https://amarereview.nl | https://amarereview-4k0yov7i5-arks-projects-2ac3ac7b.vercel.app
 
 ---
 
-## ✅ COMPLETED
+## 🗺️ SITE CROQUIS (Güncel Mimari)
 
-### Pages (8/8)
-- ✅ Homepage (`/`)
-- ✅ Reviews listing (`/reviews`)
-- ✅ Review detail template (`/reviews/[slug]`)
-- ✅ Categories listing (`/kategoriler`)
-- ✅ Category detail (`/kategoriler/[slug]`)
-- ✅ Comparison (`/karsilastirma`)
-- ✅ About (`/hakkimizda`)
-- ✅ Contact (`/contact`)
-
-### Design System
-- ✅ **Consumer Reports Aesthetic** - Navy (#1e3a8a) + Red (#dc2626) + Gray
-- ✅ **Professional Typography** - Georgia serif (headlines) + Inter sans (body)
-- ✅ **Independent Credibility** - No Amare branding colors
-- ✅ **Responsive Layout** - Mobile-first, fully responsive
-- ✅ **Methodology Sections** - Transparency in review process
-
-### Components
-- ✅ Header (navigation + mobile menu)
-- ✅ Footer (links, social, disclosure)
-- ✅ ReviewCard (reusable review card)
-- ✅ RatingStars (5-star ratings breakdown)
-- ✅ HomepageGuarantee (€8 discount banner)
-- ✅ ReviewGuarantee (sidebar guarantee card)
-
-### Infrastructure
-- ✅ Styling system (Tailwind + Consumer Reports CSS)
-- ✅ Next.js 14 with App Router
-- ✅ TypeScript configuration
-- ✅ Vercel deployment config
-- ✅ 301 Redirects setup (WordPress → Next.js)
-- ✅ robots.txt for SEO
-- ✅ Sample reviews (3 articles with mock data)
-- ✅ README with documentation
-
----
-
-## 🔄 PHASE 2: LEAD GENERATION STRATEGY
-
-### Business Model
 ```
-AmareReview.nl (SEO Traffic)
-    ↓
-AmareNL.com (Email Capture + Lead Magnet)
-    ↓
-Email Nurturing Sequence
-    ↓
-Amare.com (Affiliate Sales)
-```
-
-### Lead Capture Strategy
-**Objective**: Build email list through **contextual, trust-based lead magnets**
-
-**How It Works**:
-1. **Analyze Visitor Intent**
-   - Which review article did they read?
-   - What keyword brought them here?
-   - What problem does that keyword indicate?
-
-2. **Offer Contextual Free Value**
-   - Provide FREE, relevant guide/PDF based on their problem
-   - No sales pitch - pure education
-   - Build trust through genuine help
-
-3. **Collect Email + Problem Type**
-   - Ask email to receive the free resource
-   - Capture which problem/keyword they care about
-   - Record for segmentation
-
-4. **Nurture & Convert**
-   - Send relevant emails based on their problem
-   - Build relationship over time
-   - Eventually direct to Amare.com affiliate link
-
-### Lead Magnet Examples
-
-| Article | Keyword Intent | Problem | Free Resource | Magnet Type |
-|---------|---|---|---|---|
-| Happy Juice Huid Review | "bijwerkingen huid" | Skin sensitivity concerns | "5-page: Amare & Skin Safety Guide" | PDF |
-| MentaBiotics Review | "darmbacteriën gezondheid" | Digestive issues | "Gut Health Checklist + 7 Tips" | Checklist |
-| Edge Plus Review | "focus concentratie" | Productivity struggles | "10 Natural Focus Hacks" | Email series |
-| Happy Juice Review | "happy juice ervaringen" | Product decision | "Amare Product Selector Quiz" | Interactive |
-
-### Implementation Plan
-
-#### Phase 2.1: Lead Magnet Content Creation
-- [ ] Create 4 lead magnets (PDFs, checklists, quizzes)
-- [ ] Design visually (brand consistency)
-- [ ] Host on AmareNL.com
-- [ ] Create landing pages for each magnet
-
-#### Phase 2.2: Lead Capture Form Implementation
-- [ ] Create contextual modal component
-- [ ] Add to bottom of each review article
-- [ ] Smart triggers (appears after 30 seconds / 50% scroll)
-- [ ] Collect: Name, Email, Problem Type, Keyword
-- [ ] Integration with AmareNL.com form
-
-#### Phase 2.3: Link Strategy Update
-**Current State**: All links → Amare.com (affiliate)
-**New State**: All CTAs → AmareNL.com (email capture)
-
-Changes:
-- ❌ Remove direct Amare.com affiliate links
-- ✅ All "Bestel" buttons → AmareNL.com landing page
-- ✅ All CTAs → AmareNL.com with contextual magnet offer
-- ✅ Internal review links stay on AmareReview.nl
-
-#### Phase 2.4: AmareNL.com Integration
-**What needs to happen on AmareNL.com:**
-1. Create email capture landing page
-2. Host lead magnet PDFs/content
-3. Setup email sequence (Mailchimp/ConvertKit/etc)
-4. Final email with Amare.com affiliate link
-
-#### Phase 2.5: Analytics & Tracking
-- Track lead source (which review, which keyword)
-- Monitor conversion rate (visitor → email)
-- Track email engagement
-- Monitor affiliate conversions from email list
-
-### URL Structure & 301 Redirects
-
-**WordPress → Next.js Redirects** (Traffic preservation):
-```
-/reviews/happy-juice-review/ → /reviews/happy-juice-bijwerkingen-huid
-/reviews/mentabiotics-review/ → /reviews/darmbacteriën-gezondheid-mentabiotics
-/reviews/edge-plus/ → /reviews/edge-plus-focus-concentratie
+┌─────────────────────────────────────────────────────────────────────┐
+│                     AMAREREVIEW.NL MİMARİSİ                          │
+├─────────────────────────────────────────────────────────────────────┤
+│                                                                     │
+│  📄 PAGE LAYER (Next.js 14 App Router + TypeScript)                 │
+│                                                                     │
+│  ┌──────────────┐                                                    │
+│  │   layout.tsx  │ ← Organization JSON-LD + Vercel Analytics + GA4  │
+│  │   (global)    │    Metadata: OG, robots, GSC verification        │
+│  └──────┬───────┘                                                    │
+│         │                                                           │
+│  ┌──────┴──────────────────────────────────────────────────────┐   │
+│  │                      SAYFALAR (8+1)                          │   │
+│  │                                                               │   │
+│  │  / (Home)                   4 şema · SEO meta                │   │
+│  │  ├── /reviews               2 şema · Arama + Filtre aktif    │   │
+│  │  │   └── /[slug]           10 şema · Review+Article+FAQ+Breadcrumb │
+│  │  │      ├── happy-juice-bijwerkingen-huid                   │   │
+│  │  │      ├── darmbacteriën-gezondheid-mentabiotics           │   │
+│  │  │      └── edge-plus-focus-concentratie                    │   │
+│  │  ├── /categorieen           4 şema                            │   │
+│  │  │   └── /[slug]  (×7)     4 şema · gut-brain/focus/...     │   │
+│  │  ├── /vergelijking          4 şema · Karşılaştırma tablosu   │   │
+│  │  ├── /over-ons              6 şema · Person+Breadcrumb       │   │
+│  │  ├── /contact               2 şema · Form + metadata fix     │   │
+│  │  ├── /privacybeleid         2 şema · GDPR/AVG uyumlu         │   │
+│  │  ├── /disclaimer            2 şema · Medikal koruma          │   │
+│  │  └── /404                   Custom 404 sayfası               │   │
+│  │                                                               │   │
+│  │  ⚡ Dinamik Rotlar:                                          │   │
+│  │  ├── /sitemap.xml           Otomatik 12+ review slug         │   │
+│  │  ├── /robots.txt            Allow all, /admin/ disallow      │   │
+│  │  └── /llms.txt              AI crawler endpoint (ChatGPT)    │   │
+│  └──────────────────────────────────────────────────────────────┘   │
+│                                                                     │
+│  🧩 COMPONENT LAYER (10 bileşen)                                    │
+│                                                                     │
+│  ┌──────────────────────┐  ┌──────────────────────────┐           │
+│  │      Layout           │  │          UI              │           │
+│  │  ├── Header.tsx       │  │  ├── ReviewCard.tsx      │           │
+│  │  └── Footer.tsx       │  │  ├── AffiliateCTA.tsx    │           │
+│  └──────────────────────┘  │  ├── LeadMagnetModal.tsx  │           │
+│                             │  ├── HomepageGuarantee.tsx│           │
+│                             │  ├── JsonLd.tsx          │           │
+│                             │  ├── Skeleton.tsx        │           │
+│                             │  └── (RatingStars, etc)  │           │
+│                             └──────────────────────────┘           │
+│                                                                     │
+│  📚 LIB LAYER (5 modül)                                             │
+│                                                                     │
+│  ┌──────────────────────┐  ┌──────────────────────────┐           │
+│  │  schema.ts            │  │  leadMagnets.ts          │           │
+│  │  ├── Organization     │  │  emailSequence.ts        │           │
+│  │  ├── Review           │  │  emailService.ts         │           │
+│  │  ├── Article          │  │  (reviews.ts)            │           │
+│  │  ├── FAQPage          │  └──────────────────────────┘           │
+│  │  ├── Person (E-E-A-T) │                                          │
+│  │  ├── BreadcrumbList   │                                          │
+│  │  ├── Speakable        │                                          │
+│  │  └── SiteLinksSearch  │                                          │
+│  └──────────────────────┘                                          │
+│                                                                     │
+│  🔌 API LAYER (1 endpoint)                                          │
+│                                                                     │
+│  ┌──────────────────────┐                                          │
+│  │  /api/subscribe       │ → Mailchimp/ConvertKit/Klaviyo          │
+│  └──────────────────────┘                                          │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                     TRAFİK & ÖLÇÜM SİSTEMİ                           │
+│                                                                     │
+│  Vercel Analytics (aktif) + Google Analytics 4 (hazır, ID bekliyor) │
+│  Google Search Console (meta tag hazır, env var ile aktif olacak)   │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                     AI AGENT SİSTEMİ (6 Agent)                       │
+│                                                                     │
+│  🤖 ALPHA (Setup)     → Pazartesi/Cuma · Proje yapılandırma        │
+│  📝 BETA (Content)    → Salı-Perşembe · Makale üretimi              │
+│  🔍 GAMMA (QA)        → Perşembe-Cuma · İçerik doğrulama           │
+│  🚀 DELTA (Publish)   → Cuma 16:00 · Git + Vercel + GSC            │
+│  📈 EPSILON (SEO)     → Günlük · SEO monitoring                    │
+│  🎨 ZETA (Design)     → Talep üzerine · Animasyon/Prototip/Grafik  │
+│                         Skill: huashu-design (20 tasarım felsefesi) │
+│                                                                     │
+├─────────────────────────────────────────────────────────────────────┤
+│                     DNS & DEPLOY                                     │
+│                                                                     │
+│  Deploy: Vercel (Heroku benzeri) → arks-projects-2ac3ac7b          │
+│  Domain: amarereview.nl → Namecheap                                 │
+│  DNS: A Record → 216.198.79.195 | CNAME www → cname.vercel-dns.com │
+│  Git: GitHub → fork: arkmedia25-cmyk/agentclaw                     │
+│                                                                     │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-**All CTAs point to:**
+---
+
+## 📊 SAYFA DURUMU (22 Mart 2026)
+
+| Sayfa | HTTP | JSON-LD | Metadata | Title | Durum |
+|-------|------|---------|----------|-------|-------|
+| `/` | 200 | 4 | ✅ | AmareReview.nl | ✅ |
+| `/reviews` | 200 | 2 | ✅ | Alle Product Reviews | ✅ |
+| `/reviews/happy-juice-*` | 200 | 10 | ✅ | Happy Juice Review | ✅ |
+| `/reviews/darmbacteriën-*` | 200 | 10 | ⚠️ | MentaBiotics (title bug) | ⚠️ |
+| `/reviews/edge-plus-*` | 200 | 10 | ✅ | Edge Plus Review | ✅ |
+| `/categorieen` | 200 | 4 | ✅ | Categorieën | ✅ |
+| `/categorieen/[slug]` ×7 | 200 | 4 | ✅ | Her kategori doğru | ✅ |
+| `/vergelijking` | 200 | 4 | ✅ | Amare vs Alternatieven | ✅ |
+| `/over-ons` | 200 | 6 | ✅ | Over AmareReview.nl | ✅ |
+| `/contact` | 200 | 2 | ✅ | Contact form | ✅ |
+| `/privacybeleid` | 200 | 2 | ✅ | Privacybeleid | ✅ |
+| `/disclaimer` | 200 | 2 | ✅ | Disclaimer | ✅ |
+| `/sitemap.xml` | 200 | - | - | Otomatik XML | ✅ |
+| `/robots.txt` | 200 | - | - | Allow all | ✅ |
+| `/llms.txt` | 200 | - | - | AI crawler feed | ✅ |
+| `/404` (custom) | 404 | 2 | ✅ | Custom 404 page | ✅ |
+
+---
+
+## 🎨 TASARIM SİSTEMİ
+
+### Consumer Reports / Trust Edition
+
+| Token | Değer | Kullanım |
+|-------|-------|----------|
+| Primary | `#1e3a8a` (Navy) | Header, buton, vurgu |
+| Primary Light | `#3b5998` | Gradient |
+| Accent | `#d86018` (Orange) | CTA, link, ikon |
+| Background | `#f8f8f8` / `#ffffff` | Sayfa arka planı |
+| Text | `#333333` / `#666666` | Metin |
+| Font | Inter (400-700) | Tüm tipografi |
+
+### Anti AI-Slop Kuralları (Huashu-Design'dan):
+- ❌ Mor gradient yok
+- ❌ Emoji ikon yok (veri viz hariç)
+- ❌ Rounded-corner + left-border accent yok
+- ❌ Inter display font olarak yok
+- ✅ Serif display + oklch renkler + CSS Grid + text-wrap: pretty
+
+---
+
+## 🤖 AGENT SİSTEMİ
+
+### Aktif Agent'lar (6/6)
+
+| Agent | Rol | Frekans | Durum |
+|-------|-----|---------|-------|
+| **Alpha** | Proje kurulum, yapılandırma | Pazartesi/Cuma | 🟢 Ready |
+| **Beta** | İçerik üretimi (makale) | Salı-Perşembe 14:00 | 🟢 Ready |
+| **Gamma** | QA, validasyon | Perşembe-Cuma 10:00 | 🟢 Ready |
+| **Delta** | Publish, deploy, GSC | Cuma 16:00 | 🟢 Ready |
+| **Epsilon** | SEO monitoring | Günlük 08:00 | 🟢 Ready |
+| **Zeta** | Tasarım, animasyon, prototip | Talep üzerine | 🟢 Ready |
+
+### Zeta Agent Özellikleri:
+- **Skill**: huashu-design (花叔Design) v2.x
+- **Yetenekler**: iOS prototip, motion design (MP4/GIF), sunum deck → PPTX, infografik, tasarım varyantları, 5-boyutlu eleştiri
+- **Tasarım Felsefeleri**: 5 ekol × 20 felsefe (Pentagram bilgi mimarisi, Field.io hareket şiiri, Kenya Hara doğu minimalizmi, Sagmeister deneysel öncü, vb.)
+- **Brand Asset Protocol**: Logo + ürün görseli + UI screenshot + renk + font → 5 adımda marka varlık çıkarma
+- **Çıktı Formatları**: HTML (single-file), MP4 (25/60fps), GIF, PPTX (düzenlenebilir), PDF, PNG, SVG
+
+---
+
+## 🔄 İŞ AKIŞI
+
 ```
-AmareReview.nl → AmareNL.com/optin?source=review&keyword=huid
+┌──────────┐    ┌──────────┐    ┌──────────┐
+│  ALPHA    │───▶│  BETA    │───▶│  GAMMA   │
+│  Araştırma │    │  İçerik  │    │  Kontrol │
+└──────────┘    └──────────┘    └────┬─────┘
+                                     │
+                              ┌──────▼─────┐
+                              │   DELTA    │
+                              │  Yayınlama │
+                              └──────┬─────┘
+                                     │
+                    ┌────────────────┼────────────────┐
+                    │                │                │
+              ┌─────▼─────┐  ┌──────▼──────┐  ┌─────▼─────┐
+              │  EPSILON  │  │    ZETA     │  │  ANALYTICS│
+              │  SEO Takip│  │  Tasarım    │  │  Trafik   │
+              └───────────┘  └─────────────┘  └───────────┘
 ```
 
-### Trust Signals & Copy Strategy
+---
 
-On AmareReview.nl:
-- ✅ "Hulp nodig? We geven gratis gids"
-- ✅ "Geen spam, unsubscribe altijd"
-- ✅ "Privacy first - je email nooit gedeeld"
-- ✅ "Ontvang relevant advies per email"
+## 📋 BEKLEYEN İŞLER
 
-### Email Sequence Template
+### Yüksek Öncelik
+- [x] DNS yayılması → `amarereview.nl` aktif ✅
+- [x] Google Search Console doğrulama ✅
+- [x] Google Analytics 4 ID ekleme ✅
+- [ ] MentaBiotics slug title bug fix (`ë` karakteri)
 
-**Welcome Email (Day 1)**:
-- Free magnet delivery
-- Introduction to email series
-- 1 helpful tip
+### Orta Öncelik
+- [ ] Zeta: AmareReview.nl tasarım eleştirisi
+- [ ] Zeta: 7 kategori için hero görseli
+- [ ] Zeta: Sosyal medya paylaşım görselleri
+- [ ] Placeholder SVG'leri gerçek tasarımlarla değiştir
 
-**Educational Emails (Days 2-5)**:
-- Deep dives on the problem
-- Amare product info (not salesy)
-- User testimonials
-- FAQ answers
-
-**Conversion Email (Day 6-7)**:
-- "Ready to try?" message
-- Amare.com affiliate link
-- 30-day guarantee reminder
-- €8 discount code (if available)
+### Düşük Öncelik
+- [ ] Footer sosyal linkleri (# → gerçek URL)
+- [ ] Email platform entegrasyonu (Mailchimp API key)
+- [ ] Mobil responsive test
 
 ---
 
-## 📋 NEXT STEPS (Phase 2)
+## 🧪 LABORATUVAR NOTLARI
 
-### Immediate Actions:
-1. [ ] Update PROJECT_STATUS.md ✓
-2. [ ] Create lead magnet content outline (4 magnets)
-3. [ ] Design contextual modal component
-4. [ ] Update all review page CTAs
-5. [ ] Create AmareNL.com landing page plan
-6. [ ] Setup email sequence template
-7. [ ] Create tracking/analytics setup
+Bu site, agentclaw sistemi için bir **canlı laboratuvar** olarak kullanılıyor.
 
-### Timeline:
-- **Week 1**: Lead magnet content creation
-- **Week 2**: Modal implementation + link updates
-- **Week 3**: AmareNL.com landing pages
-- **Week 4**: Email sequence setup + testing
-- **Week 5**: Launch & monitor
+**Öğrenilen Dersler:**
+1. Nameserver değişikliği yerine A Record + CNAME daha hızlı ve güvenilir
+2. Vercel Deployment Protection `all_except_custom_domains` — sadece custom domain'de auth istemez
+3. GEO/AEO için llms.txt, FAQPage schema, Article schema kritik
+4. `'use client'` sayfalarda metadata için ayrı `layout.tsx` gerekli
+5. Design agent için huashu-design pattern'i doğrudan uyarlanabilir
 
----
-
-## 🎯 SUCCESS METRICS
-
-**Phase 2 Goals**:
-- 10% of review visitors → email list (conversion rate)
-- 5 segmented email lists (by keyword/problem)
-- 100+ emails in list by end of month
-- 15%+ email open rate
-- 5%+ affiliate conversion from email
-
----
-
-## 📦 TECHNICAL REQUIREMENTS
-
-### AmareReview.nl Updates:
-- [ ] Lead magnet modal component
-- [ ] Contextual trigger logic
-- [ ] Form integration with AmareNL.com
-- [ ] Tracking pixels (conversion tracking)
-- [ ] Segment analytics by article/keyword
-
-### AmareNL.com Required:
-- [ ] Landing pages (4 per lead magnet)
-- [ ] Email capture forms
-- [ ] Email service integration
-- [ ] Lead magnet hosting/delivery
-- [ ] Email sequence automation
-- [ ] Affiliate link in final email
-
-### Analytics:
-- [ ] Google Analytics events
-- [ ] Conversion tracking (visitor → email)
-- [ ] Email platform: Mailchimp / ConvertKit / Klaviyo
-- [ ] CRM integration (optional)
-
----
-
-## ⚠️ CRITICAL SUCCESS FACTORS
-
-1. **Lead Magnet Quality**
-   - Must be genuinely valuable (not salesy)
-   - Solve the specific problem
-   - Professional design
-
-2. **Contextual Relevance**
-   - Each modal matches the article
-   - Copy speaks to the visitor's exact problem
-   - No generic CTAs
-
-3. **Trust Building**
-   - No spam promises
-   - Privacy-first messaging
-   - Transparent about intentions
-
-4. **Email Nurture**
-   - Value-first approach (80% help, 20% sales)
-   - Segmentation by problem type
-   - Personal, not corporate tone
-
-5. **Zero Traffic Loss**
-   - All WordPress URLs have 301 redirects
-   - Internal links preserved
-   - SEO rankings maintained
-
----
-
-## 📊 BUSINESS IMPACT
-
-**Current**: Direct affiliate sales from AmareReview.nl only
-
-**After Phase 2**:
-- Growing email list (recurring revenue potential)
-- Higher LTV (lifetime value) per visitor
-- Better remarketing opportunities
-- Email list portability (owned asset)
-- Multiple revenue streams (affiliate + future partnerships)
-
----
-
-**Status**: Ready for Phase 2 implementation
-**Approval**: Awaiting user sign-off on lead magnet strategy
+**Sıradaki Proje İçin Şablon:**
+- 6 agent mimarisi (Alpha→Beta→Gamma→Delta + Epsilon + Zeta)
+- SEO/GEO/AEO altyapısı (schema.ts + llms.txt + metadata)
+- Hukuki koruma sayfaları (disclaimer + privacybeleid)
+- Vercel deploy + DNS yapılandırması

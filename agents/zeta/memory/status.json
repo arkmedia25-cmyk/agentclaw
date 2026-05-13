@@ -1,0 +1,29 @@
+{
+  "agent": "zeta",
+  "status": "ready",
+  "created": "2026-05-13",
+  "skill": "huashu-design",
+  "skill_version": "2.x",
+  "completed_tasks": 0,
+  "pending_tasks": [
+    {
+      "id": "design-001",
+      "task": "Design critique of current amarereview.nl",
+      "priority": "high",
+      "status": "pending"
+    },
+    {
+      "id": "design-002",
+      "task": "Category hero images for 7 categories",
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "id": "design-003",
+      "task": "Social media share images",
+      "priority": "low",
+      "status": "pending"
+    }
+  ],
+  "errors": []
+}
