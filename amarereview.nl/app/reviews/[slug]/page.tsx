@@ -241,7 +241,8 @@ export async function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
-  const review = reviews[params.slug] || reviews['happy-juice-bijwerkingen-huid']
+  const slug = params.slug.normalize('NFC')
+  const review = reviews[slug] || reviews['happy-juice-bijwerkingen-huid']
   return {
     title: `${review.title} | AmareReview.nl`,
     description: review.excerpt,
@@ -250,20 +251,21 @@ export function generateMetadata({ params }: { params: { slug: string } }) {
       description: review.excerpt,
       type: 'article',
       publishedTime: review.date,
-      url: `https://amarereview.nl/reviews/${params.slug}`,
+      url: `https://amarereview.nl/reviews/${slug}`,
       siteName: 'AmareReview.nl',
       locale: 'nl_NL',
     },
     alternates: {
-      canonical: `https://amarereview.nl/reviews/${params.slug}`,
+      canonical: `https://amarereview.nl/reviews/${slug}`,
     },
   }
 }
 
 export default function ReviewPage({ params }: { params: { slug: string } }) {
-  const review = reviews[params.slug] || reviews['happy-juice-bijwerkingen-huid']
-  const magnet = getLeadMagnet(params.slug)
-  const amareNLUrl = getAmareNLUrl(params.slug)
+  const slug = params.slug.normalize('NFC')
+  const review = reviews[slug] || reviews['happy-juice-bijwerkingen-huid']
+  const magnet = getLeadMagnet(slug)
+  const amareNLUrl = getAmareNLUrl(slug)
 
   const avgRatingNum = review.breakdown.reduce((sum: number, item: any) => sum + item.rating, 0) / review.breakdown.length
   const avgRating = avgRatingNum.toFixed(1)
@@ -276,7 +278,7 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
     datePublished: review.date,
     authorName: review.author,
     category: review.category,
-    slug: params.slug,
+    slug: slug,
   })
 
   const articleSchema = generateArticleSchema({
@@ -284,14 +286,14 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
     description: review.excerpt,
     datePublished: review.date,
     authorName: review.author,
-    slug: params.slug,
+    slug: slug,
     wordCount: review.content.split(' ').length + (review.methodology?.split(' ').length || 0),
   })
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: 'Home', url: 'https://amarereview.nl' },
     { name: 'Reviews', url: 'https://amarereview.nl/reviews' },
-    { name: review.title, url: `https://amarereview.nl/reviews/${params.slug}` },
+    { name: review.title, url: `https://amarereview.nl/reviews/${slug}` },
   ])
 
   const faqSchema = review.faqs ? generateFAQSchema(review.faqs) : null
@@ -485,7 +487,7 @@ export default function ReviewPage({ params }: { params: { slug: string } }) {
       </div>
 
       {/* Lead Magnet Modal - appears after 30s or 50% scroll */}
-      {magnet && <LeadMagnetModal magnet={magnet} articleSlug={params.slug} />}
+      {magnet && <LeadMagnetModal magnet={magnet} articleSlug={slug} />}
     </>
   )
 }
