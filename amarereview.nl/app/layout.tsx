@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
 import JsonLd from '@/components/ui/JsonLd'
@@ -12,6 +14,9 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 })
+
+const GSC_VERIFICATION = process.env.NEXT_PUBLIC_GSC_VERIFICATION || ''
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || ''
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://amarereview.nl'),
@@ -41,9 +46,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'google-site-verification-code-placeholder',
-  },
+  verification: GSC_VERIFICATION ? {
+    google: GSC_VERIFICATION,
+  } : {},
 }
 
 export default function RootLayout({
@@ -64,6 +69,8 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Analytics />
+        {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   )

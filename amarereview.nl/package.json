@@ -9,11 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.6",
+    "@vercel/analytics": "^2.0.1",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.263.1",
     "next": "^14.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lucide-react": "^0.263.1",
-    "gray-matter": "^4.0.3"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^20",
