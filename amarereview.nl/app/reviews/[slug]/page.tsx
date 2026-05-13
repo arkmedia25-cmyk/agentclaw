@@ -241,9 +241,9 @@ export async function generateStaticParams() {
 }
 
 function getReview(slug: string) {
-  const normalized = slug.normalize('NFC')
+  const decoded = decodeURIComponent(slug)
   for (const [key, value] of Object.entries(reviews)) {
-    if (key.normalize('NFC') === normalized) return value
+    if (key === decoded) return value
   }
   return reviews['happy-juice-bijwerkingen-huid']!
 }
