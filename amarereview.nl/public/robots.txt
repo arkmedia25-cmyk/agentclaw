@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /.well-known/
+
+# Sitemaps
+Sitemap: https://amarereview.nl/sitemap.xml
+Sitemap: https://amarereview.nl/sitemap-reviews.xml

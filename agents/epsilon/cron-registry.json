@@ -1,0 +1,14 @@
+{
+  "agent": "epsilon",
+  "description": "SEO & Marketing Research - Market intelligence",
+  "enabled": true,
+  "timezone": "Europe/Amsterdam",
+  "crons": [
+    {
+      "id": "epsilon-research",
+      "schedule": "0 8 * * 1-5",
+      "description": "Mon-Fri 8:00 AM - Market research & brief generation",
+      "enabled": true
+    }
+  ]
+}

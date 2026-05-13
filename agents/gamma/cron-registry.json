@@ -1,0 +1,14 @@
+{
+  "agent": "gamma",
+  "description": "Reviewer & QA - Content validation",
+  "enabled": true,
+  "timezone": "Europe/Amsterdam",
+  "crons": [
+    {
+      "id": "gamma-validate",
+      "schedule": "0 10 * * 4-5",
+      "description": "Thu-Fri 10:00 AM - Validate draft articles",
+      "enabled": true
+    }
+  ]
+}

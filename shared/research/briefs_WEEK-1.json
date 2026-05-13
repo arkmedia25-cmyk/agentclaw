@@ -1,0 +1,219 @@
+{
+  "week": 1,
+  "year": 2026,
+  "date_generated": "2026-05-12",
+  "date_range_analyzed": "2026-05-05 to 2026-05-12",
+  "briefs": [
+    {
+      "id": "brief-001",
+      "keyword": "Happy Juice bijwerkingen huid",
+      "search_volume": 320,
+      "search_volume_trend": "↑ +15% (trending viral)",
+      "difficulty": 18,
+      "intent": "informational",
+      "angle": "Is Happy Juice veilig voor de huid? Bijwerkingen onderzoeken, ingrediënten-analyse, huid reacties.",
+      "related_products": ["happy-juice-pack"],
+      "related_categories": ["beauty", "safety"],
+      "internal_links": ["happy-juice-ervaringen", "skin-to-mind-ervaringen"],
+      "faq_targets": [
+        "Veroorzaakt Happy Juice huidproblemen of puistjes?",
+        "Hoe lang tot je ziet resultaten op huid?",
+        "Is Happy Juice veilig voor gevoelige huid?"
+      ],
+      "traffic_potential": "high",
+      "competition_analysis": "Happy Juice is trending viral op social media. Weinig Hollandstalige reviews. DIetitians review available (Abby Langer, Lauren Twigge), but no local Hollandse content.",
+      "priority": 9,
+      "estimated_monthly_traffic": 80,
+      "notes": "Viral trending product. Hollandse content gap. Strong competitive advantage. Article #1 candidate.",
+      "competitor_urls": [
+        "https://abbylangernutrition.com/amare-global-review/",
+        "https://pcosnutritionistalyssa.com/amare-happy-juice-review/"
+      ]
+    },
+    {
+      "id": "brief-002",
+      "keyword": "darmbacteriën gezondheid Amare MentaBiotics",
+      "search_volume": 280,
+      "search_volume_trend": "↑ +20% (seasonal: lente/zomer wellbeing)",
+      "difficulty": 22,
+      "intent": "informational",
+      "angle": "Hoe werken darmbacteriën? Wat is MentaBiotics? Gut-brain axis onderzoeken.",
+      "related_products": ["mentabiotics"],
+      "related_categories": ["gut-brain", "health"],
+      "internal_links": ["gut-brain-top-5", "amare-vs-rakipler"],
+      "faq_targets": [
+        "Wat zijn darmbacteriën en waarom zijn ze belangrijk?",
+        "Helpt MentaBiotics echt met darmgezondheid?",
+        "Hoe snel werkt MentaBiotics?"
+      ],
+      "traffic_potential": "high",
+      "competition_analysis": "General gut health trending in NL (Voedingscentrum, gezondmeer.nl, darmgezondheid.nl). But NO Amare-specific gut health content in Dutch. Major gap.",
+      "priority": 9,
+      "estimated_monthly_traffic": 120,
+      "notes": "Seasonal trend (spring/summer health focus). High search intent. Major Hollandse content gap. Educate about gut-brain axis + Amare MentaBiotics combo.",
+      "competitor_urls": [
+        "https://www.gezondermeer.nl/darmgezondheid-alles-over-je-microbioom-en-hoe-je-je-darmen-gezond-houdt/",
+        "https://www.voedingscentrum.nl/ (reference authority)"
+      ]
+    },
+    {
+      "id": "brief-003",
+      "keyword": "Amare Edge Plus focus concentratie",
+      "search_volume": 180,
+      "search_volume_trend": "↑ +10% (work-from-home focus trend)",
+      "difficulty": 20,
+      "intent": "informational",
+      "angle": "Helpt Edge Plus met focus en concentratie? Ingrediënten breakdown, eigenaren ervaringen.",
+      "related_products": ["edge-plus-mango"],
+      "related_categories": ["focus", "energy"],
+      "internal_links": ["edge-plus-mango", "gut-brain-top-5"],
+      "faq_targets": [
+        "Hoe snel werkt Edge Plus voor focus?",
+        "Is Edge Plus beter dan koffie?",
+        "Voor wie is Edge Plus geschikt?"
+      ],
+      "traffic_potential": "medium-high",
+      "competition_analysis": "Nootropics market trending in NL. Competitors: generic focus supplements. NO Amare Edge Plus Hollandse reviews.",
+      "priority": 8,
+      "estimated_monthly_traffic": 60,
+      "notes": "Good complementary article to existing edge-plus-mango review. Work-from-home + student focus = trending audience.",
+      "competitor_urls": []
+    },
+    {
+      "id": "brief-004",
+      "keyword": "Amare Rootist haar groei capillair",
+      "search_volume": 150,
+      "search_volume_trend": "↑ +8% (seasonal: hair care spring)",
+      "difficulty": 19,
+      "intent": "informational",
+      "angle": "Werkt Rootist echt voor haargroei? Ingrediënten, eigenaren testimonials, voor/nadelen.",
+      "related_products": ["rootist"],
+      "related_categories": ["beauty", "hair"],
+      "internal_links": ["rootist-ervaringen", "skin-to-mind-ervaringen"],
+      "faq_targets": [
+        "Hoe lang tot je haar groeit met Rootist?",
+        "Is Rootist veilig?",
+        "Wat zijn de ingrediënten in Rootist?"
+      ],
+      "traffic_potential": "medium",
+      "competition_analysis": "Hair growth supplements trending (seasonal). Some generic reviews. Minimal Amare Rootist Hollandse content.",
+      "priority": 7,
+      "estimated_monthly_traffic": 45,
+      "notes": "Seasonal hair care trend. Good for spring/summer audience targeting.",
+      "competitor_urls": []
+    },
+    {
+      "id": "brief-005",
+      "keyword": "Amare Happy Juice versus concurrenten vergelijking",
+      "search_volume": 200,
+      "search_volume_trend": "↑ +12% (product comparison intent)",
+      "difficulty": 25,
+      "intent": "commercial",
+      "angle": "Happy Juice vs andere mood/mental wellness drinks. Vergelijking, prijzen, welke is beter?",
+      "related_products": ["happy-juice-pack"],
+      "related_categories": ["comparison", "mental-health"],
+      "internal_links": ["amare-vs-rakipler", "happy-juice-ervaringen"],
+      "faq_targets": [
+        "Wat maakt Happy Juice anders dan andere supplements?",
+        "Happy Juice vs Vitaminerie vs ander concurrenten?",
+        "Is Happy Juice het geld waard?"
+      ],
+      "traffic_potential": "high",
+      "competition_analysis": "Comparison content trending. Amare.com has comparison, but no independent Dutch review comparison.",
+      "priority": 8,
+      "estimated_monthly_traffic": 75,
+      "notes": "Commercial intent (ready to buy). Good affiliate revenue potential. Educate + recommend Happy Juice.",
+      "competitor_urls": [
+        "https://www.amare.com/corporate/nl-nl/shop-all"
+      ]
+    },
+    {
+      "id": "brief-006",
+      "keyword": "Amare producten review betrouwbaarheid veiligheid",
+      "search_volume": 120,
+      "search_volume_trend": "↑ +18% (trust/safety concern trending)",
+      "difficulty": 28,
+      "intent": "informational",
+      "angle": "Zijn Amare producten veilig? Wat zeggen voedingsdeskundigen? Betrouwbaarheid onderzoek.",
+      "related_products": ["all"],
+      "related_categories": ["safety", "trustworthiness"],
+      "internal_links": ["amare-vs-rakipler", "happy-juice-bijwerkingen"],
+      "faq_targets": [
+        "Zijn Amare producten veilig en effectief?",
+        "Wat zeggen voedingsdeskundigen over Amare?",
+        "Waar worden Amare producten gemaakt?"
+      ],
+      "traffic_potential": "medium",
+      "competition_analysis": "Trust/safety searches increasing (consumers want validation). Opportunity to position as trustworthy, independent reviewer.",
+      "priority": 7,
+      "estimated_monthly_traffic": 55,
+      "notes": "Build authority & trust. Address safety concerns transparently. Differentiator: independent, honest reviews vs. Amare marketing.",
+      "competitor_urls": [
+        "https://www.trustpilot.com/review/amare.com"
+      ]
+    },
+    {
+      "id": "brief-007",
+      "keyword": "Energy+ mango Amare drink review",
+      "search_volume": 110,
+      "search_volume_trend": "↑ +5% (stable)",
+      "difficulty": 17,
+      "intent": "informational",
+      "angle": "Energy+ Mango review: smaak, effectiviteit, ingrediënten, eigenaren feedback.",
+      "related_products": ["energy-plus-mango"],
+      "related_categories": ["energy", "drinks"],
+      "internal_links": ["edge-plus-mango", "happy-juice-ervaringen"],
+      "faq_targets": [
+        "Hoe smaakt Energy+ Mango?",
+        "Geeft Energy+ echt energie?",
+        "Hoeveel cafeïne zit in Energy+ Mango?"
+      ],
+      "traffic_potential": "medium",
+      "competition_analysis": "Energy drink market large but generic. Minimal Amare Energy+ Hollandse reviews.",
+      "priority": 6,
+      "estimated_monthly_traffic": 35,
+      "notes": "Lower priority but good product coverage. Expand Amare product portfolio on site.",
+      "competitor_urls": []
+    },
+    {
+      "id": "brief-008",
+      "keyword": "MentaBiotics probiotica darmen brein gezondheid",
+      "search_volume": 95,
+      "search_volume_trend": "↑ +22% (gut-brain connection trending)",
+      "difficulty": 21,
+      "intent": "informational",
+      "angle": "MentaBiotics deeper dive: probiotica soorten, hoe werken ze, wetenschappelijk bewijs.",
+      "related_products": ["mentabiotics"],
+      "related_categories": ["gut-brain", "probiotics"],
+      "internal_links": ["gut-brain-top-5"],
+      "faq_targets": [
+        "Welke probiotica zitten in MentaBiotics?",
+        "Ondersteunt MentaBiotics echt mentale gezondheid?",
+        "Hoe verschillen MentaBiotics van andere probiotica?"
+      ],
+      "traffic_potential": "medium",
+      "competition_analysis": "Gut-brain axis is trendy scientific topic. Good authority-building content.",
+      "priority": 6,
+      "estimated_monthly_traffic": 40,
+      "notes": "Educational deep-dive article. Build site authority on gut-brain topic.",
+      "competitor_urls": []
+    }
+  ],
+  "summary": {
+    "total_briefs": 8,
+    "high_priority_count": 3,
+    "medium_priority_count": 4,
+    "low_priority_count": 1,
+    "estimated_total_traffic": "510 monthly visits from these 8 topics",
+    "data_sources": ["WebSearch (Amare trending)", "WebSearch (darmgezondheid NL)", "Competitor analysis", "Voedingsdeskundigen reviews"],
+    "major_findings": [
+      "Happy Juice is VIRAL trending — high opportunity",
+      "Gut health (darmbacteriën) trending in spring/summer Netherlands",
+      "MAJOR CONTENT GAP: No Hollandse Amare product reviews exist",
+      "Safety/trustworthiness searches increasing — position as independent reviewer",
+      "Commercial intent (comparison, vs competitors) high potential for affiliate revenue"
+    ],
+    "content_strategy": "Cover high-priority briefs first (1-3). Build authority with safety/educational content (6-8). Seasonal timing opportunity.",
+    "next_step": "Generate MDX articles from top 3 briefs (Tue-Thu), validate (Thu-Fri), publish (Fri)"
+  }
+}

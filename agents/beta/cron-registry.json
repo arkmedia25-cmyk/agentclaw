@@ -1,0 +1,14 @@
+{
+  "agent": "beta",
+  "description": "Content Master - Article generation",
+  "enabled": true,
+  "timezone": "Europe/Amsterdam",
+  "crons": [
+    {
+      "id": "beta-generate",
+      "schedule": "0 14 * * 2-4",
+      "description": "Tue-Thu 2:00 PM - Generate 1 MDX article",
+      "enabled": true
+    }
+  ]
+}

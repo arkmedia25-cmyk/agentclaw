@@ -1,0 +1,53 @@
+{
+  "agent": "delta",
+  "description": "Ajan 6 - Automated content generation + market research for amarereview.nl",
+  "enabled": true,
+  "timezone": "Europe/Amsterdam",
+  "crons": [
+    {
+      "id": "delta-market-research",
+      "name": "Market Research & Trend Analysis",
+      "schedule": "0 8 * * 1-5",
+      "description": "Monday-Friday, 8:00 AM — Monitor Dutch market trends, identify viral Amare niches, generate 5-10 content briefs",
+      "enabled": true,
+      "prompt": "Run the /delta-research skill. Monitor Google Trends for Dutch Amare-related searches, analyze competitor content, identify content gaps. Output 5-10 high-potential content briefs to shared/research/briefs_WEEK-X.json. Include: keyword, search volume, difficulty, angle, related products, FAQ targets, traffic potential.",
+      "timeout": 3600,
+      "last_run": null,
+      "next_run": null
+    },
+    {
+      "id": "delta-content-generation",
+      "name": "Article Generation",
+      "schedule": "0 14 * * 2-4",
+      "description": "Tuesday-Thursday, 2:00 PM — Generate 1 MDX article per run",
+      "enabled": true,
+      "prompt": "Run the /delta-generate skill. Pick 1 brief from shared/research/briefs_WEEK-X.json (select highest priority not yet written). Generate a complete 1,500-word MDX article following the AmareReview.nl template: frontmatter (title, date, category, rating, slug, metaDescription, image), H1 in first 100 words with keyword, 3+ FAQ blocks (40-60 words), 2+ internal links, <AffiliateCTA> component, rating breakdown (if review). Validate: word count ≥1,200, keyword density 0.8-2%, Flesch-Kincaid 6-9. Save draft to shared/content/drafts/[slug]-DRAFT.mdx",
+      "timeout": 3600,
+      "last_run": null,
+      "next_run": null
+    },
+    {
+      "id": "delta-content-validation",
+      "name": "Content Quality Validation",
+      "schedule": "0 10 * * 4-5",
+      "description": "Thursday-Friday, 10:00 AM — Validate 3-4 draft articles",
+      "enabled": true,
+      "prompt": "Run the /delta-validate skill. Review all articles in shared/content/drafts/. For each article, run the 15-point validation checklist: frontmatter complete, title ≤60 chars with keyword, meta description ≤155 chars, H1 present in first 100 words, word count ≥1,200, keyword density 0.8-2%, 3+ FAQ blocks, 2+ internal links, AffiliateCTA used, affiliate disclosure present, no medical claims without disclaimer, valid JSON-LD schemas, alt text on images, Flesch-Kincaid 6-9, valid MDX syntax. If ALL checks pass → move to shared/content/approved/[slug]-APPROVED.mdx. If ANY fail → log errors, keep in drafts/, mark for manual review.",
+      "timeout": 1800,
+      "last_run": null,
+      "next_run": null
+    },
+    {
+      "id": "delta-publish-deploy",
+      "name": "Publish & Deploy to Vercel",
+      "schedule": "0 16 * * 5",
+      "description": "Friday, 4:00 PM — Publish approved articles to amarereview.nl",
+      "enabled": true,
+      "prompt": "Run the /delta-publish skill. For each article in shared/content/approved/: (1) Copy to amarereview.nl/content/reviews/[slug].mdx, (2) Git add + commit with message 'chore: publish auto-generated article — [title] (keywords: [kw1], [kw2])', (3) Git push origin main, (4) Wait for Vercel deployment (check: vercel.com/arks-projects-2ac3ac7b/amarereview.nl), (5) Submit to Google Search Console via API (request indexing), (6) Log to shared/metrics/published_WEEK-X.json with: slug, date_published, keyword, url, indexing_status. Report weekly summary: articles published, total words, keywords targeted, validation success rate, deployment status.",
+      "timeout": 3600,
+      "last_run": null,
+      "next_run": null
+    }
+  ],
+  "notes": "Enable these crons on startup via CronCreate. Each skill is defined in .claude/skills/ directory. On session end, update shared/memory/convo_log_delta.md with completion status."
+}

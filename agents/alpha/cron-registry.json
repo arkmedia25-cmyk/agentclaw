@@ -1,0 +1,7 @@
+{
+  "agent": "alpha",
+  "description": "Architect & Setup Agent - Project initialization",
+  "enabled": false,
+  "timezone": "Europe/Amsterdam",
+  "crons": []
+}
